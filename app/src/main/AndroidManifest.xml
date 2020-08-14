@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dailyapp">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp"></activity>
+        <activity android:name=".EditProfileGoal"></activity>
+        <activity android:name=".SignUpGoal"></activity>
     </application>
 
 </manifest>

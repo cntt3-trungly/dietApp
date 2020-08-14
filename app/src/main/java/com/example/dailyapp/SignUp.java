@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class SignUp extends AppCompatActivity {
     private String[] arraySpinnerDOBDay = new String[32];
     private String[] arraySpinnerDOBYear = new String[100];
@@ -365,14 +368,35 @@ public class SignUp extends AppCompatActivity {
             double doubleWeightSQL = db.quoteSmart(doubleWeight);
             String stringMeasurementSQL = db.quoteSmart(stringMeasurement);
 
-            String stringInput = "NULL, " + stringEmailSQL + "," + dateOfBirthSQL + "," + stringGenderSQL + "," + heightCmSQL + "," + intActivityLevelSQL + "," + doubleWeightSQL + "," + stringMeasurementSQL;
+            //Input for users
+            String stringInput = "NULL, " + stringEmailSQL + "," + dateOfBirthSQL + "," + stringGenderSQL + "," + heightCmSQL + "," + intActivityLevelSQL + "," + stringMeasurementSQL;
 
             db.insert("users",
-                    "user_id,user_email,user_dob,user_gender,user_height,user_activity_level,user_weight,user_measurement",
+                    "user_id,user_email,user_dob,user_gender,user_height,user_activity_level,user_measurement",
                     stringInput);
+
+            //Input for goal
+
+            //Get currentDayGoal
+//            Calendar calendar=Calendar.getInstance();
+//            int year= calendar.get(Calendar.YEAR);
+//            int month= calendar.get(Calendar.MONTH);
+//            int mDay= calendar.get(Calendar.DAY_OF_MONTH);
+//            String goalDate= year + "-" + month + "-" + mDay;
+
+
+            DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+            String goalDate=format1.format(Calendar.getInstance().getTime());
+            String goalDateSQL = db.quoteSmart(goalDate);
+
+            stringInput = "NULL, " + doubleWeightSQL + "," + goalDateSQL;
+            db.insert("goal",
+                    "goal_id,goal_current_weight,goal_date",
+                    stringInput);
+
             db.close();
             //Move users back into main activity
-            Intent intent = new Intent(SignUp.this,MainActivity.class);
+            Intent intent = new Intent(SignUp.this, SignUpGoal.class);
             startActivity(intent);
 
         } else {
