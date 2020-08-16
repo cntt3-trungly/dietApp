@@ -2,7 +2,9 @@ package com.example.dailyapp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,100 +13,123 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Calendar;
+/**
+ * Created by bruker on 19.06.2017.
+ */
 
 public class SignUpGoal extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_goal);
 
-        /*Listener button signUp*/
-        Button buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+
+        /* Listener submit */
+        Button buttonSubmit = (Button)findViewById(R.id.buttonSubmit);
+        buttonSubmit.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View v){
                 signUpGoalSubmit();
             }
         });
-        /*Remove Error handling*/
+
+        /* Remove error handling */
         hideErrorHandling();
 
-        /* Measurement used*/
-        measurementUsed();
-    }// OnCreate
+        /* Mesurment used? */
+        mesurmentUsed();
 
-    /*Sign up goal submit-------------------------*/
-    public void signUpGoalSubmit() {
+    } // onCreate
 
-        //Open Database
+    /* signUpGoalSubmit ----------------------------------------------------- */
+    public void signUpGoalSubmit(){
+        /* Open database */
         DBAdapter db = new DBAdapter(this);
         db.open();
 
-        //Error
-        ImageView imageViewError = (ImageView) findViewById(R.id.imageViewError);
-        TextView textViewErrorMessage = (TextView) findViewById(R.id.textViewErrorMessage);
+        /* Error */
+        ImageView imageViewError = (ImageView)findViewById(R.id.imageViewError);
+        TextView textViewErrorMessage = (TextView)findViewById(R.id.textViewErrorMessage);
         String errorMessage = "";
 
-        //Get target weight
-        EditText editTextTargetWeight = (EditText) findViewById(R.id.editTextTargetWeight);
+
+        /* Get target weight */
+        EditText editTextTargetWeight = (EditText)findViewById(R.id.editTextTargetWeight);
         String stringTargetWeight = editTextTargetWeight.getText().toString();
         double doubleTargetWeight = 0;
-        try {
+        try{
             doubleTargetWeight = Double.parseDouble(stringTargetWeight);
-        } catch (NumberFormatException nfe) {
-            errorMessage = " target weight has to be a number ";
+        }
+        catch(NumberFormatException nfe) {
+            errorMessage = "Target weight has to be a number.";
         }
 
-        /*spinner I want to*/
-        Spinner spinnerIWantTo = (Spinner) findViewById(R.id.spinnerIWantTo);
-        int intIWanTo = spinnerIWantTo.getSelectedItemPosition();
-        // 0 -- Loose weight
-        // 1 -- Gain weight
+        /* Spinner IWantTo */
+        // 0 - Loose weight
+        // 1 - Gain weight
+        Spinner spinnerIWantTo = (Spinner)findViewById(R.id.spinnerIWantTo);
+        int intIWantTo = spinnerIWantTo.getSelectedItemPosition();
 
-        /*spinner spinnerWeeklyGoal*/
-        Spinner spinnerWeeklyGoal = (Spinner) findViewById(R.id.spinnerWeeklyGoal);
+        /* Spinner spinnerWeeklyGoal */
+        Spinner spinnerWeeklyGoal = (Spinner)findViewById(R.id.spinnerWeeklyGoal);
         String stringWeeklyGoal = spinnerWeeklyGoal.getSelectedItem().toString();
 
-        if (errorMessage.isEmpty()) {
-            // Update database
 
-            long goalId = 1;
+        /* Update fields */
+        if(errorMessage.isEmpty()){
+
+            long goalID = 1;
 
             double doubleTargetWeightSQL = db.quoteSmart(doubleTargetWeight);
-            db.update("goal", "goal_id", goalId, "goal_target_weight", doubleTargetWeightSQL);
+            db.update("goal", "_id", goalID, "goal_target_weight", doubleTargetWeightSQL);
 
-            int intIWanToSQL = db.quoteSmart(intIWanTo);
-            db.update("goal", "goal_id", goalId, "goal_i_want_to", intIWanToSQL);
+            int intIWantToSQL = db.quoteSmart(intIWantTo);
+            db.update("goal", "_id", goalID, "goal_i_want_to", intIWantToSQL);
 
             String stringWeeklyGoalSQL = db.quoteSmart(stringWeeklyGoal);
-            db.update("goal", "goal_id", goalId, "goal_weekly_goal", stringWeeklyGoalSQL);
+            db.update("goal", "_id", goalID, "goal_weekly_goal", stringWeeklyGoalSQL);
 
         }
-        /*Calculate energy*/
-        if (errorMessage.isEmpty()) {
-            /*get row number one from users*/
+
+        /* Calculate energy */
+        if(errorMessage.isEmpty()){
+
+            // Get row number one from users
             long rowID = 1;
-            String fields[] = new String[]{
-                    "user_id",
+            String fields[] = new String[] {
+                    "_id",
                     "user_dob",
                     "user_gender",
-                    "user_height",
-                    "user_activity_level"
+                    "user_height"
             };
-            Cursor c = db.selectPrimary("users", "user_id", rowID, fields);
-
+            Cursor c = db.select("users", fields, "_id", rowID);
             String stringUserDob = c.getString(1);
-
-            String stringUserGender = c.getString(2);
-
+            String stringUserGender  = c.getString(2);
             String stringUserHeight = c.getString(3);
 
-            String stringUserActivityLevel = c.getString(4);
+            // Get weight actvity level
+            rowID = 1;
+            String fieldsGoal[] = new String[] {
+                    "_id",
+                    "goal_current_weight",
+                    "goal_activity_level"
+            };
+            Cursor cGoal = db.select("goal", fieldsGoal, "_id", rowID);
+            String stringUserCurrentWeight = cGoal.getString(1);
+            String stringUserActivityLevel = cGoal.getString(2);
 
-            //Get age
+            // Get weight
+            double doubleUserCurrentWeight = 0;
+            try{
+                doubleUserCurrentWeight = Double.parseDouble(stringUserCurrentWeight);
+            }
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
+            }
+
+
+            // Get Age
             String[] items1 = stringUserDob.split("-");
             String stringYear = items1[0];
             String stringMonth = items1[1];
@@ -113,236 +138,310 @@ public class SignUpGoal extends AppCompatActivity {
             int intYear = 0;
             try {
                 intYear = Integer.parseInt(stringYear);
-            } catch (NumberFormatException nfe) {
-
             }
-
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
+            }
             int intMonth = 0;
             try {
                 intMonth = Integer.parseInt(stringMonth);
-            } catch (NumberFormatException nfe) {
-
             }
-
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
+            }
             int intDay = 0;
             try {
                 intDay = Integer.parseInt(stringDay);
-            } catch (NumberFormatException nfe) {
+            }
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
             }
             String stringUserAge = getAge(intYear, intMonth, intDay);
+
             int intUserAge = 0;
             try {
                 intUserAge = Integer.parseInt(stringUserAge);
-            } catch (NumberFormatException nfe) {
+            }
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
             }
 
-            //height
+            // Height
             double doubleUserHeight = 0;
             try {
                 doubleUserHeight = Double.parseDouble(stringUserHeight);
-            } catch (NumberFormatException nfe) {
             }
-
-
-            //Start calculation
-
-            // 1: BMR
-            double bmr = 0;
-            if (stringUserGender.startsWith("m")) {
-                //Male
-                //BMR = 66.5 + (13.75 x kg body weight) + (5.003 x height in cm) - (6.755 x age)
-                bmr = 66.5 + (13.75 * doubleTargetWeight) + (5.003 * doubleUserHeight) - (6.755 * intUserAge);
-//                bmr=Math.round(bmr);
-
-            } else {
-                //Female
-                //BMR = 55.1 + (9.563 x kg body weight) +(1.850 x height in cm) - (4.676 x age)
-                bmr = 655 + (9.563 * doubleTargetWeight) + (1.850 * doubleUserHeight) - (4.676 * intUserAge);
-//                bmr=Math.round(bmr);
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
             }
-            bmr = Math.round(bmr);
-            double energyBmrSQL = db.quoteSmart(bmr);
+            //Toast.makeText(this, "DOB=" + stringUserDob + "\nAge=" + stringUserAge + "\nGender=" + stringUserGender + "\nHeight=" + stringUserHeight + "\nActivity level=" + stringUserActivityLevel, Toast.LENGTH_LONG).show();
+
+
             long goalID = 1;
-            db.update("goal", "goal_id", goalID, "goal_energy_bmr", energyBmrSQL);
 
 
-            //protein carB fat BMR
-            double proteinsBmr = Math.round(bmr * 25 / 100);
-            double carbsBmr = Math.round(bmr * 50 / 100);
-            double fatBmr = Math.round(bmr * 25 / 100);
+            /* 1: BRM */
+            // Start calculation
+            double goalEnergyBMR = 0;
+            if(stringUserGender.startsWith("m")){
+                // Male
+                // BMR = 66.5 + (13.75 x kg body weight) + (5.003 x height in cm) - (6.755 x age)
+                goalEnergyBMR = 66.5+(13.75*doubleUserCurrentWeight)+(5.003*doubleUserHeight)-(6.755*intUserAge);
+                //bmr = Math.round(bmr);
+                //Toast.makeText(this, "BMR formula: 66.5+(13.75*" + doubleUserCurrentWeight + ")+(5.003*" + doubleUserHeight + ")-(6.755*" + intUserAge + " = " + goalEnergyBMR, Toast.LENGTH_LONG).show();
+
+            } // if(stringUserGender.startsWith("m")){
+            else{
+                // Female
+                // BMR = 55.1 + (9.563 x kg body weight) + (1.850 x height in cm) - (4.676 x age)
+                goalEnergyBMR = 655+(9.563*doubleUserCurrentWeight)+(1.850*doubleUserHeight)-(4.676*intUserAge);
+                //bmr = Math.round(bmr);
+            }
+            goalEnergyBMR = Math.round(goalEnergyBMR);
+            double energyBmrSQL = db.quoteSmart(goalEnergyBMR);
+            db.update("goal", "_id", goalID, "goal_energy_bmr", energyBmrSQL);
+            //Toast.makeText(this, "BMR before activity: " + bmr, Toast.LENGTH_LONG).show();
+
+            // Proteins, carbs and fat with BMR
+            // 20-25 % protein
+            // 40-50 % carbs
+            // 25-35 % fat
+            double proteinsBmr = Math.round(goalEnergyBMR*25/100);
+            double carbsBmr = Math.round(goalEnergyBMR*50/100);
+            double fatBmr = Math.round(goalEnergyBMR*25/100);
 
             double proteinsBmrSQL = db.quoteSmart(proteinsBmr);
             double carbsBmrSQL = db.quoteSmart(carbsBmr);
-            double fatBmrSQL = db.quoteSmart(fatBmr);
-            db.update("goal", "goal_id", goalID, "goal_proteins_bmr", proteinsBmrSQL);
-            db.update("goal", "goal_id", goalID, "goal_carbs_bmr", carbsBmrSQL);
-            db.update("goal", "goal_id", goalID, "goal_fat_bmr", fatBmrSQL);
+            double fatBmrQL = db.quoteSmart(fatBmr);
+            db.update("goal", "_id", goalID, "goal_proteins_bmr", proteinsBmrSQL);
+            db.update("goal", "_id", goalID, "goal_carbs_bmr", carbsBmrSQL);
+            db.update("goal", "_id", goalID, "goal_fat_bmr", fatBmrQL);
 
-            /* 2 : Diet */
-            //Lose or gain weight??
+            /* 2: Diet */
+            // If you want to loose weight
+            // without activity (Little to no exercise)
+            // Loose or gain weight?
             double doubleWeeklyGoal = 0;
-
             try {
                 doubleWeeklyGoal = Double.parseDouble(stringWeeklyGoal);
-            } catch (NumberFormatException nfe) {
-
             }
-            //1 kg fat = 7700 kcal
-            double kCal = 0;
+            catch(NumberFormatException nfe) {
+                System.out.println("Could not parse " + nfe);
+            }
+
+            // 1 kg fat = 7700 kcal
+            double kcal = 0;
             double energyDiet = 0;
-            kCal = 7700 * doubleWeeklyGoal;
-            if (intIWanTo == 0) {
-                //Loose weight
-                energyDiet = Math.round(bmr - (kCal / 7));
-            } else {
-                energyDiet = Math.round(bmr + (kCal / 7));
+            kcal = 7700*doubleWeeklyGoal;
+            if(intIWantTo == 0){
+                // Loose weight
+                energyDiet = Math.round((goalEnergyBMR - (kcal/7)) * 1.2);
+
+            }
+            else{
+                // Gain weight
+                energyDiet = Math.round((goalEnergyBMR + (kcal/7)) * 1.2);
             }
 
-            //Update database
+            // Update database
             double energyDietSQL = db.quoteSmart(energyDiet);
-            db.update("goal", "goal_id", goalID, "goal_energy_diet", energyDietSQL);
+            db.update("goal", "_id", goalID, "goal_energy_diet", energyDietSQL);
 
-            //protein carB fat Diet
-            double proteinsDiet = Math.round(energyDiet * 25 / 100);
-            double carbsDiet = Math.round(energyDiet * 50 / 100);
-            double fatDiet = Math.round(energyDiet * 25 / 100);
+            // Proteins, carbs and fat diet
+            // 20-25 % protein
+            // 40-50 % carbs
+            // 25-35 % fat
+            double proteinsDiet = Math.round(energyDiet*25/100);
+            double carbsDiet = Math.round(energyDiet*50/100);
+            double fatDiet = Math.round(energyDiet*25/100);
 
-            double  proteinsDietSQL = db.quoteSmart(proteinsDiet);
+            double proteinsDietSQL = db.quoteSmart(proteinsDiet);
             double carbsDietSQL = db.quoteSmart(carbsDiet);
-            double fatDietSQL = db.quoteSmart(fatDiet);
-            db.update("goal", "goal_id", goalID, "goal_proteins_diet", proteinsDietSQL);
-            db.update("goal", "goal_id", goalID, "goal_carbs_diet", carbsDietSQL);
-            db.update("goal", "goal_id", goalID, "goal_fat_diet", fatDietSQL);
+            double fatDietQL = db.quoteSmart(fatDiet);
+            db.update("goal", "_id", goalID, "goal_proteins_diet", proteinsDietSQL);
+            db.update("goal", "_id", goalID, "goal_carbs_diet", carbsDietSQL);
+            db.update("goal", "_id", goalID, "goal_fat_diet", fatDietQL);
 
-            /*---------With Activity level ------*/
-            //Taking in to account activity
+
+            /* 3: With activity */
+            // Taking in to account activity
             double energyWithActivity = 0;
-            if (stringUserActivityLevel.equals("0")) {
-                energyWithActivity = bmr * 1.2;
-            } else if (stringUserActivityLevel.equals("1")) {
-                energyWithActivity = bmr * 1.375;  //slightly_active
-            } else if (stringUserActivityLevel.equals("2")) {
-                energyWithActivity = bmr * 1.55;  //moderately_active
-            } else if (stringUserActivityLevel.equals("3")) {
-                energyWithActivity = bmr * 1.725;  //active_lifestyle
-            } else if (stringUserActivityLevel.equals("4")) {
-                energyWithActivity = bmr * 1.9;  //very_active
+            if(stringUserActivityLevel.equals("0")) {
+                energyWithActivity = goalEnergyBMR * 1.2;
+            }
+            else if(stringUserActivityLevel.equals("1")) {
+                energyWithActivity = goalEnergyBMR * 1.375; // slightly_active
+            }
+            else if(stringUserActivityLevel.equals("2")) {
+                energyWithActivity = goalEnergyBMR*1.55; // moderately_active
+            }
+            else if(stringUserActivityLevel.equals("3")) {
+                energyWithActivity = goalEnergyBMR*1.725; // active_lifestyle
+            }
+            else if(stringUserActivityLevel.equals("4")) {
+                energyWithActivity = goalEnergyBMR * 1.9; // very_active
             }
             energyWithActivity = Math.round(energyWithActivity);
             double energyWithActivitySQL = db.quoteSmart(energyWithActivity);
-            db.update("goal", "goal_id", goalID, "goal_energy_with_activity", energyWithActivitySQL);
+            db.update("goal", "_id", goalID, "goal_energy_with_activity", energyWithActivitySQL);
+            //Toast.makeText(this, "BMR after activity: " + bmr, Toast.LENGTH_LONG).show();
 
-            double proteinsWithActivity = Math.round(energyWithActivity * 25 / 100);
-            double carbsWithActivity = Math.round(energyWithActivity * 50 / 100);
-            double fatWithActivity = Math.round(energyWithActivity * 25 / 100);
+            // Proteins, carbs and fat diet
+            // 20-25 % protein
+            // 40-50 % carbs
+            // 25-35 % fat
+            double proteinsWithActivity = Math.round(energyWithActivity*25/100);
+            double carbsWithActivity = Math.round(energyWithActivity*50/100);
+            double fatWithActivity = Math.round(energyWithActivity*25/100);
 
             double proteinsWithActivitySQL = db.quoteSmart(proteinsWithActivity);
             double carbsWithActivitySQL = db.quoteSmart(carbsWithActivity);
-            double fatWithActivitySQL = db.quoteSmart(fatWithActivity);
-            db.update("goal", "goal_id", goalID, "goal_proteins_with_activity", proteinsWithActivitySQL);
-            db.update("goal", "goal_id", goalID, "goal_carbs_with_activity", carbsWithActivitySQL);
-            db.update("goal", "goal_id", goalID, "goal_fat_with_activity", fatWithActivitySQL);
+            double fatWithActivityQL = db.quoteSmart(fatWithActivity);
+            db.update("goal", "_id", goalID, "goal_proteins_with_activity", proteinsWithActivitySQL);
+            db.update("goal", "_id", goalID, "goal_carbs_with_activity", carbsWithActivitySQL);
+            db.update("goal", "_id", goalID, "goal_fat_with_activity", fatWithActivityQL);
 
 
-            /* 4 activity and diet */
-            //1 kg fat = 7700 kcal
-            kCal = 0;
+
+            /* 4: With_activity_and_diet */
+            // If you want to loose your weight
+            // With activity
+            // 1 kg fat = 7700 kcal
+            kcal = 0;
             double energyWithActivityAndDiet = 0;
-            kCal = 7700 * doubleWeeklyGoal;
-            if (intIWanTo == 0) {
-                //Loose weight
-                energyWithActivityAndDiet = Math.round(bmr - (kCal / 7));
-            } else {
-                energyWithActivityAndDiet = Math.round(bmr + (kCal / 7));
+            kcal = 7700*doubleWeeklyGoal;
+            if(intIWantTo == 0){
+                // Loose weight
+                energyWithActivityAndDiet = goalEnergyBMR - (kcal/7);
+
+            }
+            else{
+                // Gain weight
+                energyWithActivityAndDiet = goalEnergyBMR + (kcal/7);
             }
 
-            //Update database
+            if(stringUserActivityLevel.equals("0")) {
+                energyWithActivityAndDiet= energyWithActivityAndDiet* 1.2;
+            }
+            else if(stringUserActivityLevel.equals("1")) {
+                energyWithActivityAndDiet= energyWithActivityAndDiet* 1.375; // slightly_active
+            }
+            else if(stringUserActivityLevel.equals("2")) {
+                energyWithActivityAndDiet= energyWithActivityAndDiet*1.55; // moderately_active
+            }
+            else if(stringUserActivityLevel.equals("3")) {
+                energyWithActivityAndDiet= energyWithActivityAndDiet*1.725; // active_lifestyle
+            }
+            else if(stringUserActivityLevel.equals("4")) {
+                energyWithActivityAndDiet = energyWithActivityAndDiet* 1.9; // very_active
+            }
+            energyWithActivityAndDiet = Math.round(energyWithActivityAndDiet);
+
+            // Update database
             double energyWithActivityAndDietSQL = db.quoteSmart(energyWithActivityAndDiet);
-            db.update("goal", "goal_id", goalID, "goal_energy_with_activity_and_diet", energyWithActivityAndDietSQL);
+            db.update("goal", "_id", goalID, "goal_energy_with_activity_and_diet", energyWithActivityAndDietSQL);
 
-            //Calculate protein
 
-            double proteins = Math.round(energyWithActivityAndDiet * 25 / 100);
-            double carbs = Math.round(energyWithActivityAndDiet * 50 / 100);
-            double fat = Math.round(energyWithActivityAndDiet * 25 / 100);
+            // Calcualte proteins
+            // 20-25 % protein
+            // 40-50 % carbs
+            // 25-35 % fat
+            double proteins = Math.round(energyWithActivityAndDiet*25/100);
+            double carbs = Math.round(energyWithActivityAndDiet*50/100);
+            double fat = Math.round(energyWithActivityAndDiet*25/100);
 
             double proteinsSQL = db.quoteSmart(proteins);
             double carbsSQL = db.quoteSmart(carbs);
             double fatSQL = db.quoteSmart(fat);
-            db.update("goal", "goal_id", goalID, "goal_proteins_with_activity_and_diet", proteinsSQL);
-            db.update("goal", "goal_id", goalID, "goal_carbs_with_activity_and_diet", carbsSQL);
-            db.update("goal", "goal_id", goalID, "goal_fat_with_activity_and_diet", fatSQL);
+            db.update("goal", "_id", goalID, "goal_proteins_with_activity_and_diet", proteinsSQL);
+            db.update("goal", "_id", goalID, "goal_carbs_with_activity_and_diet", carbsSQL);
+            db.update("goal", "_id", goalID, "goal_fat_with_activity_and_diet", fatSQL);
 
-        }
-        if (!(errorMessage.isEmpty())) {
+        } //  /* Calculate energy */
+
+
+
+        // Error handling
+        if(!(errorMessage.isEmpty())){
+            // There is error
             textViewErrorMessage.setText(errorMessage);
             imageViewError.setVisibility(View.VISIBLE);
             textViewErrorMessage.setVisibility(View.VISIBLE);
+
         }
 
+        /* Close db */
         db.close();
 
-        if (errorMessage.isEmpty()) {
+        /* Move to main activity */
+        if(errorMessage.isEmpty()){
             Intent i = new Intent(SignUpGoal.this, MainActivity.class);
             startActivity(i);
         }
-    }
+    } // signUpGoalSubmit
 
-    /*Hide Error handling-------------------------*/
-    public void hideErrorHandling() {
-
-        /*Hide error icon and message*/
-        ImageView imageViewError = (ImageView) findViewById(R.id.imageViewError);
+    /* hideErrorHandling --------------------------------------------------- */
+    public void hideErrorHandling(){
+        /* Hide error icon and message */
+        ImageView imageViewError = (ImageView)findViewById(R.id.imageViewError);
         imageViewError.setVisibility(View.GONE);
 
-        TextView textViewErrorMessage = (TextView) findViewById(R.id.textViewErrorMessage);
+        TextView textViewErrorMessage = (TextView)findViewById(R.id.textViewErrorMessage);
         textViewErrorMessage.setVisibility(View.GONE);
+
     }
 
-    /* Measurement used----------------------*/
-    public void measurementUsed() {
-        /*Open database */
+    /* mesurmentUsed ------------------------------------------------------- */
+    public void mesurmentUsed(){
+        /* Open database */
         DBAdapter db = new DBAdapter(this);
         db.open();
 
-        /*get row number one from users*/
+        /* Get row number one from users */
         long rowID = 1;
-        String fields[] = new String[]{
-                "user_id",
-                "user_measurement"
+        String fields[] = new String[] {
+                "_id",
+                "user_mesurment"
         };
-        Cursor c = db.selectPrimary("users", "user_id", rowID, fields);
-        String measurement;
-        measurement = c.getString(1);
+        Cursor c = db.select("users", fields, "_id", rowID);
+        String mesurment;
+        mesurment = c.getString(1);
 
-        //Measurement or imperial?
-        if (measurement.startsWith("m")) {
+        // Metric or imperial?
+        if(mesurment.startsWith("m")){
+            // Metric
+        }
+        else{
+            // Imperial
 
-        } else {
-            //Imperial
-            //Kg to pound
-            TextView textViewTargetMeasurementType = (TextView) findViewById(R.id.textViewTargetMeasurementType);
-            textViewTargetMeasurementType.setText("pounds");
+            // Kg to punds
+            TextView textViewTargetMesurmentType = (TextView)findViewById(R.id.textViewTargetMesurmentType);
+            textViewTargetMesurmentType.setText("pounds");
 
-            //Kg each week
-            TextView textViewKgEachWeek = (TextView) findViewById(R.id.textViewKgEachWeek);
+
+            // Kg each week to pounds each week
+            TextView textViewKgEachWeek = (TextView)findViewById(R.id.textViewKgEachWeek);
             textViewKgEachWeek.setText("pounds each week");
         }
-        /* Close database*/
+
+
+        /* Close database */
         db.close();
     }
 
-    /*get Age --------------------------------------*/
-    private String getAge(int year, int month, int day) {
+    /* getAge -------------------------------------------------------------- */
+    private String getAge(int year, int month, int day){
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
         dob.set(year, month, day);
 
         int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
             age--;
         }
+
         Integer ageInt = new Integer(age);
         String ageS = ageInt.toString();
 
