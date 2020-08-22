@@ -54,13 +54,35 @@
 
 
         <!-- Image -->
-            <ImageView
-                android:id="@+id/imageViewViewFoodImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                app:srcCompat="@drawable/logo" />
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp">
+
+
+                <ImageView
+                    android:id="@+id/imageViewViewFoodImage1"
+                    android:layout_width="170dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:srcCompat="@drawable/logo" />
+
+                <ImageView
+                    android:id="@+id/imageViewViewFoodImage2"
+                    android:layout_width="170dp"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    app:srcCompat="@drawable/logo" />
+            </TableRow>
+        </TableLayout>
         <!-- //Image -->
 
         <!-- About -->
@@ -77,6 +99,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show recipe"/>
         <!-- //Description -->
 
 

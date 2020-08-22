@@ -362,6 +362,10 @@ public class FoodFragment extends Fragment {
 
         // Image
 
+
+        // Image
+
+
         // Calculation line
         TextView textViewViewFoodAbout = (TextView) getView().findViewById(R.id.textViewViewFoodAbout);
         String foodAbout = stringServingSize + " " + stringServingMesurment + " = " +

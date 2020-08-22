@@ -7,7 +7,6 @@ package com.example.dailyapp;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteException;
-import android.widget.Toast;
 
 public class DBSetupInsert {
 
@@ -121,7 +120,7 @@ public class DBSetupInsert {
 
     // Insert all food into food database
     public void insertAllFood() {
-        setupInsertToFood("NULL, 'Speltlompe med havre', 'Aulie', '26', 'gram', '1', 'stk', '122', '3.5', '23.4', '1', '32', '1', '6', '0', NULL, NULL, '2', 'aulie_speltlomper_med_havre_thumb.jpg', 'aulie_speltlomper_med_havre_a.jpg', 'aulie_speltlomper_med_havre_b.jpg', 'aulie_speltlomper_med_havre_c.jpg', NULL");
+        setupInsertToFood("NULL, 'Speltlompe med havre', 'Aulie', '26', 'gram', '1', 'stk', '122', '3.5', '23.4', '1', '32', '1', '6', '0', NULL, NULL, '2', 'green', 'green', 'green1', 'aulie_speltlomper_med_havre_c.jpg', NULL");
         setupInsertToFood("NULL, 'Havregryn lettkokt', 'Axa', '60', 'gram', '60', 'g', '389', '11.4', '63.1', '7.8', '233', '7', '38', '5', NULL, NULL, '3', 'axa_havregryn_lettkokt_thumb.jpg', 'axa_havregryn_lettkokt_a.jpg', 'axa_havregryn_lettkokt_b.jpg', 'axa_havregryn_lettkokt_c.jpg', NULL");
         setupInsertToFood("NULL, 'Havregryn store', 'Axa', '80', 'gram', '80', 'g', '380', '13', '61', '7', '304', '10', '49', '6', NULL, NULL, '3', 'axa_havregryn_store_thumb.jpg', 'axa_havregryn_store_a.jpg', 'axa_havregryn_store_b.jpg', 'axa_havregryn_store_c.jpg', NULL");
         setupInsertToFood("NULL, 'Frosne pitaprød', 'Hatting', '80', 'gram', '1', 'stk', '251', '8.1', '50', '1.5', '201', '6', '40', '1', NULL, NULL, '4', 'hatting_frosne_pitabrod_thumb.jpg', 'hatting_frosne_pitabrod_a.jpg', 'hatting_frosne_pitabrod_b.jpg', 'hatting_frosne_pitabrod_c.jpg', NULL");

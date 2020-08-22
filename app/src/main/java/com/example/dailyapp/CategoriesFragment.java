@@ -102,7 +102,7 @@ public class CategoriesFragment extends Fragment {
         // Create menu
         setHasOptionsMenu(true);
 
-`   
+
     } // onActivityCreated
 
 

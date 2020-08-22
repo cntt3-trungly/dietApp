@@ -18,12 +18,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+
 public class AddFoodToDiaryFragment extends Fragment {
 
     /*- 01 Class Variables -------------------------------------------------------------- */
@@ -435,6 +438,18 @@ public class AddFoodToDiaryFragment extends Fragment {
 
 
         // Image
+        HashMap<String, Integer> images = new HashMap<String, Integer>();
+        images.put( "green", Integer.valueOf( R.drawable.green ) );
+        images.put( "green1", Integer.valueOf( R.drawable.green1 ) );
+
+
+        ImageView imageView1 = (ImageView) getView().findViewById(R.id.imageViewViewFoodImage1);
+        imageView1.setImageResource( images.get( stringImageA ).intValue() );
+
+        ImageView imageView2 = (ImageView) getView().findViewById(R.id.imageViewViewFoodImage2);
+        imageView2.setImageResource( images.get( stringImageB ).intValue() );
+
+
 
         // Calculation line
         TextView textViewViewFoodAbout = (TextView) getView().findViewById(R.id.textViewViewFoodAbout);
@@ -913,4 +928,5 @@ public class AddFoodToDiaryFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
