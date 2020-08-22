@@ -14,7 +14,7 @@ public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
     private static final String databaseName = "dietbystram";
-    private static final int databaseVersion = 57;
+    private static final int databaseVersion = 64;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -130,7 +130,7 @@ public class DBAdapter {
                         " fd_energy_calculated DOUBLE," +
                         " fd_protein_calculated DOUBLE," +
                         " fd_carbohydrates_calculated DOUBLE," +
-                        " fd_fat_calculated DOUBLE" +
+                        " fd_fat_calculated DOUBLE, " +
                         " fd_meal_id INT);");
 
             } catch (SQLException e) {
@@ -220,7 +220,7 @@ public class DBAdapter {
     }
 
     /* 07 Quote smart ------------------------------------------------------------ */
-    public String quoteSmart(String value) {
+        public String quoteSmart(String value) {
         // Is numeric?
         boolean isNumeric = false;
         try {
@@ -314,29 +314,7 @@ public class DBAdapter {
 
     // Select All where (String)
     public Cursor select(String table, String[] fields, String[] whereClause, String[] whereCondition, String[] whereAndOr) throws SQLException {
-        /*
-        Cursor cursorFdce;
-        String fieldsFdce[] = new String[] {
-                "_id",
-                "fdce_id",
-                "fdce_date",
-                "fdce_meal_no",
-                "fdce_eaten_energy",
-                "fdce_eaten_proteins",
-                "fdce_eaten_carbs",
-                "fdce_eaten_fat"
-        };
-        String whereClause[] = new String[]{
-                "fdce_date",
-                "fdce_meal_no"
-        };
-        String whereCondition[] = new String[]{
-                stringDateSQL,
-                stringMealNumberSQL
-        };
-        String whereAndOr[] = new String[]{
-                "AND"
-        };*/
+
         String where = "";
         int arraySize = whereClause.length;
         for (int x = 0; x < arraySize; x++) {

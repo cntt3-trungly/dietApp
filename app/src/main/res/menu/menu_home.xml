@@ -6,7 +6,7 @@
     <item android:id="@+id/menu_action_add_food"
         android:icon="@drawable/ic_menu_action_restaurant_menu"
         android:title="@string/add"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 
 </menu>

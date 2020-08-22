@@ -73,7 +73,7 @@ public class ProfileFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Set title */
-        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Profile");
+        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Profile   ");
 
         // getDataFromDbAndDisplay
         initalizeGetDataFromDbAndDisplay();

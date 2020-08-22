@@ -22,6 +22,10 @@
             android:id="@+id/nav_food"
             android:icon="@drawable/ic_menu_food"
             android:title="@string/food" />
+        <item
+            android:id="@+id/nav_gymnastic"
+            android:icon="@drawable/activities"
+            android:title="@string/activities" />
     </group>
 
 

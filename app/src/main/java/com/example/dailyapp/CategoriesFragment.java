@@ -94,7 +94,7 @@ public class CategoriesFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Set title */
-        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Categories");
+        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Categories   ");
 
         // Populate the list of categories
         populateList("0", ""); // Parent
@@ -102,7 +102,7 @@ public class CategoriesFragment extends Fragment {
         // Create menu
         setHasOptionsMenu(true);
 
-
+`   
     } // onActivityCreated
 
 

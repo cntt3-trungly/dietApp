@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Diet by Stram</string>
+    <string name="app_name">Eatdy</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,6 +19,7 @@
     <string name="feet_inches">feet and inches</string>
     <string name="kg">kg</string>
     <string name="pound">pound</string>
+    <string name="activities">Activity</string>
 
 
     <string-array name="array_mesurments">

@@ -23,9 +23,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,7 +85,7 @@ public class FoodFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Set title */
-        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Food");
+        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Food   ");
 
 
         // Create menu

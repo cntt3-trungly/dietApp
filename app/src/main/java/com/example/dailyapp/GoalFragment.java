@@ -86,7 +86,7 @@ public class GoalFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         /* Set title */
-        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Goal");
+        ((FragmentActivity)getActivity()).getSupportActionBar().setTitle("Goal   ");
 
         // getDataFromDbAndDisplay
         initalizeGetDataFromDbAndDisplay();
@@ -354,7 +354,7 @@ public class GoalFragment extends Fragment {
         }
         else {
             textViewGoalMethodRowA.setVisibility(View.VISIBLE);
-            textViewGoalMethodRowB.setVisibility(View.VISIBLE);
+                textViewGoalMethodRowB.setVisibility(View.VISIBLE);
             textViewGoalHeadcellEnergy.setVisibility(View.VISIBLE);
             textViewGoalHeadcellProteins.setVisibility(View.VISIBLE);
             textViewGoalHeadcellCarbs.setVisibility(View.VISIBLE);
@@ -379,6 +379,7 @@ public class GoalFragment extends Fragment {
     public void goalEdit(){
         /* Change layout */
         int id = R.layout.fragment_goal_edit;
+
         setMainView(id);
 
 
