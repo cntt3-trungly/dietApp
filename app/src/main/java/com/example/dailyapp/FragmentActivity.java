@@ -115,6 +115,8 @@ public class FragmentActivity extends AppCompatActivity
             fragmentClass = CategoriesFragment.class;
         } else if (id == R.id.nav_food) {
             fragmentClass = FoodFragment.class;
+        } else if (id == R.id.nav_activity) {
+            fragmentClass = ActivityGoal.class;
         }
 
         // Try to add item to fragment
