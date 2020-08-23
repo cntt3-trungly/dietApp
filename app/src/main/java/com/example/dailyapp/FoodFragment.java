@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -361,7 +363,201 @@ public class FoodFragment extends Fragment {
         textViewViewFoodManufactorName.setText(stringManufactorName);
 
         // Image
+        HashMap<String, Integer> images = new HashMap<String, Integer>();
+        images.put( "aulie_speltlomper_med_havre_a", Integer.valueOf( R.drawable.aulie_speltlomper_med_havre_a) );
+        images.put( "aulie_speltlomper_med_havre_b", Integer.valueOf( R.drawable.aulie_speltlomper_med_havre_b ) );
+        images.put( "axa_havregryn_lettkokt_a", Integer.valueOf( R.drawable.axa_havregryn_lettkokt_a) );
+        images.put( "axa_havregryn_lettkokt_b", Integer.valueOf( R.drawable.axa_havregryn_lettkokt_b ) );
+        images.put( "axa_havregryn_store_a", Integer.valueOf( R.drawable.axa_havregryn_store_a) );
+        images.put( "axa_havregryn_store_b", Integer.valueOf( R.drawable.axa_havregryn_store_b ) );
+        images.put( "hatting_frosne_pitabrod_a", Integer.valueOf( R.drawable.hatting_frosne_pitabrod_a) );
+        images.put( "hatting_frosne_pitabrod_b", Integer.valueOf( R.drawable.hatting_frosne_pitabrod_b ) );
+        images.put( "hvita_hjertegod_frosne_ekstra_grove_rundstykker_a", Integer.valueOf( R.drawable.hvita_hjertegod_frosne_ekstra_grove_rundstykker_a) );
+        images.put( "hvita_hjertegod_frosne_ekstra_grove_rundstykker_b", Integer.valueOf( R.drawable. hvita_hjertegod_frosne_ekstra_grove_rundstykker_b) );
+        images.put( "rema_1000_steinovnsbakte_solsikkebriks_a", Integer.valueOf( R.drawable.rema_1000_steinovnsbakte_solsikkebriks_a) );
+        images.put( "rema_1000_steinovnsbakte_solsikkebriks_b", Integer.valueOf( R.drawable.rema_1000_steinovnsbakte_solsikkebriks_b ) );
+        images.put( "wasa_fiber_balance_a", Integer.valueOf( R.drawable.wasa_fiber_balance_a) );
+        images.put( "wasa_fiber_balance_b", Integer.valueOf( R.drawable.wasa_fiber_balance_b ) );
+        images.put( "wasa_sport_pluss_a", Integer.valueOf( R.drawable.wasa_sport_pluss_a) );
+        images.put( "wasa_sport_pluss_b", Integer.valueOf( R.drawable.wasa_sport_pluss_b ) );
+        images.put( "dan_sukker_sukker_a", Integer.valueOf( R.drawable.dan_sukker_sukker_a) );
+        images.put( "dan_sukker_sukker_b", Integer.valueOf( R.drawable.dan_sukker_sukker_b ) );
+        images.put( "moollerens_siktet_hvetemel_a", Integer.valueOf( R.drawable.moollerens_siktet_hvetemel_a) );
+        images.put( "moollerens_siktet_hvetemel_b", Integer.valueOf( R.drawable.moollerens_siktet_hvetemel_b ) );
+        images.put( "mondelez_norge_ritz_crackers_a", Integer.valueOf( R.drawable.mondelez_norge_ritz_crackers_a) );
+        images.put( "mondelez_norge_ritz_crackers_b", Integer.valueOf( R.drawable.mondelez_norge_ritz_crackers_b ) );
+        images.put( "ringnes_battery_energy_drink_50cl_a", Integer.valueOf( R.drawable.ringnes_battery_energy_drink_50cl_a) );
+        images.put( "ringnes_battery_energy_drink_50cl_b", Integer.valueOf( R.drawable.ringnes_battery_energy_drink_50cl_b ) );
+        images.put( "eldorado_frossen_brokkoliblanding_a", Integer.valueOf( R.drawable.eldorado_frossen_brokkoliblanding_a) );
+        images.put( "eldorado_frossen_brokkoliblanding_b", Integer.valueOf( R.drawable.eldorado_frossen_brokkoliblanding_b ) );
+        images.put( "rema_1000_frosne_brokkolitopper_a", Integer.valueOf( R.drawable.rema_1000_frosne_brokkolitopper_a) );
+        images.put( "rema_1000_frosne_brokkolitopper_b", Integer.valueOf( R.drawable.rema_1000_frosne_brokkolitopper_b ) );
+        images.put( "bama_rode_druer_a", Integer.valueOf( R.drawable.bama_rode_druer_a) );
+        images.put( "bama_rode_druer_b", Integer.valueOf( R.drawable.bama_rode_druer_b ) );
+        images.put( "bama_brokkoli_a", Integer.valueOf( R.drawable.bama_brokkoli_a) );
+        images.put( "bama_brokkoli_b", Integer.valueOf( R.drawable.bama_brokkoli_b ) );
+        images.put( "bama_gulrot_a", Integer.valueOf( R.drawable.bama_gulrot_a) );
+        images.put( "bama_gulrot_b", Integer.valueOf( R.drawable.bama_gulrot_b ) );
+        images.put( "bama_isberg_mix_a", Integer.valueOf( R.drawable.bama_isberg_mix_a) );
+        images.put( "bama_isberg_mix_b", Integer.valueOf( R.drawable.bama_isberg_mix_b ) );
+        images.put( "bama_isbergsalat_a", Integer.valueOf( R.drawable.bama_isbergsalat_a) );
+        images.put( "bama_isbergsalat_b", Integer.valueOf( R.drawable.bama_isbergsalat_b ) );
+        images.put( "bama_meksikansk_salat_a", Integer.valueOf( R.drawable.bama_meksikansk_salat_a) );
+        images.put( "bama_meksikansk_salat_b", Integer.valueOf( R.drawable.bama_meksikansk_salat_b ) );
 
+        images.put( "bama_rod_paprika_a", Integer.valueOf( R.drawable.bama_rod_paprika_a) );
+        images.put( "bama_rod_paprika_b", Integer.valueOf( R.drawable.bama_rod_paprika_b ) );
+        images.put( "bama_romano_mix_a", Integer.valueOf( R.drawable.bama_romano_mix_a) );
+        images.put( "bama_romano_mix_b", Integer.valueOf( R.drawable.bama_romano_mix_b ) );
+        images.put( "coop_baked_beans_a", Integer.valueOf( R.drawable.coop_baked_beans_a) );
+        images.put( "coop_baked_beans_b", Integer.valueOf( R.drawable.coop_baked_beans_b ) );
+        images.put( "eldorado_kokosmelk_a", Integer.valueOf( R.drawable.eldorado_kokosmelk_a) );
+        images.put( "eldorado_kokosmelk_b", Integer.valueOf( R.drawable.eldorado_kokosmelk_b ) );
+        images.put( "eldorado_lett_kokosmelk_a", Integer.valueOf( R.drawable.eldorado_lett_kokosmelk_a) );
+        images.put( "eldorado_lett_kokosmelk_b", Integer.valueOf( R.drawable.eldorado_lett_kokosmelk_a ) );
+        images.put( "eldorado_maiskorn_a", Integer.valueOf( R.drawable.eldorado_maiskorn_a) );
+        images.put( "eldorado_maiskorn_b", Integer.valueOf( R.drawable.eldorado_maiskorn_b ) );
+        images.put( "nora_tomatboonner_a", Integer.valueOf( R.drawable.nora_tomatboonner_a) );
+        images.put( "nora_tomatboonner_b", Integer.valueOf( R.drawable.nora_tomatboonner_b ) );
+        images.put( "rema_1000_boonner_i_tomatsaus_a", Integer.valueOf( R.drawable.rema_1000_boonner_i_tomatsaus_a) );
+        images.put( "rema_1000_boonner_i_tomatsaus_b", Integer.valueOf( R.drawable.rema_1000_boonner_i_tomatsaus_b ) );
+        images.put( "strongr_power_meal_a", Integer.valueOf( R.drawable.strongr_power_meal_a) );
+        images.put( "strongr_power_meal_b", Integer.valueOf( R.drawable.strongr_power_meal_b ) );
+        images.put( "strongr_pure_protein_meal_sjokoladesmak_a", Integer.valueOf( R.drawable.strongr_pure_protein_meal_sjokoladesmak_a) );
+        images.put( "strongr_pure_protein_meal_sjokoladesmak_b", Integer.valueOf( R.drawable.strongr_pure_protein_meal_sjokoladesmak_b ) );
+
+        images.put( "tech_nutrition_mealtech_a", Integer.valueOf( R.drawable.tech_nutrition_mealtech_a) );
+        images.put( "tech_nutrition_mealtech_b", Integer.valueOf( R.drawable.tech_nutrition_mealtech_b ) );
+        images.put( "atkins_chocolate_peanut_a", Integer.valueOf( R.drawable.atkins_chocolate_peanut_a) );
+        images.put( "atkins_chocolate_peanut_b", Integer.valueOf( R.drawable.atkins_chocolate_peanut_b ) );
+        images.put( "maxim_protein_bar_almond_and_caramel_flavour_a", Integer.valueOf( R.drawable.maxim_protein_bar_almond_and_caramel_flavour_a) );
+        images.put( "maxim_protein_bar_almond_and_caramel_flavour_b", Integer.valueOf( R.drawable.maxim_protein_bar_almond_and_caramel_flavour_b ) );
+        images.put( "tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_a", Integer.valueOf( R.drawable.tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_a) );
+        images.put( "tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_b", Integer.valueOf( R.drawable.tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_b ) );
+        images.put( "tine_yt_restitusjonsbar_a", Integer.valueOf( R.drawable.tine_yt_restitusjonsbar_a) );
+        images.put( "tine_yt_restitusjonsbar_b", Integer.valueOf( R.drawable.tine_yt_restitusjonsbar_b ) );
+        images.put( "gymgrossisten_100_lean_whey_chocolate_milkshake_a", Integer.valueOf( R.drawable.gymgrossisten_100_lean_whey_chocolate_milkshake_a) );
+        images.put( "gymgrossisten_100_lean_whey_chocolate_milkshake_b", Integer.valueOf( R.drawable.gymgrossisten_100_lean_whey_chocolate_milkshake_b ) );
+        images.put( "gymgrossisten_100_whey_gold_standard_cookies_and_cream_a", Integer.valueOf( R.drawable.gymgrossisten_100_whey_gold_standard_cookies_and_cream_a) );
+        images.put( "gymgrossisten_100_whey_gold_standard_cookies_and_cream_b", Integer.valueOf( R.drawable.gymgrossisten_100_whey_gold_standard_cookies_and_cream_b ) );
+        images.put( "gymgrossisten_100_whey_gold_standard_delicious_strawberry_a", Integer.valueOf( R.drawable.gymgrossisten_100_whey_gold_standard_delicious_strawberry_a) );
+        images.put( "gymgrossisten_100_whey_gold_standard_delicious_strawberry_b", Integer.valueOf( R.drawable.gymgrossisten_100_whey_gold_standard_delicious_strawberry_b ) );
+        images.put( "gymgrossisten_lean_protein_a", Integer.valueOf( R.drawable.gymgrossisten_lean_protein_a) );
+        images.put( "gymgrossisten_lean_protein_b", Integer.valueOf( R.drawable.gymgrossisten_lean_protein_b ) );
+        images.put( "gymgrossisten_whey_80_ice_coffee_a", Integer.valueOf( R.drawable.gymgrossisten_whey_80_ice_coffee_a) );
+        images.put( "gymgrossisten_whey_80_ice_coffee_b", Integer.valueOf( R.drawable.gymgrossisten_whey_80_ice_coffee_b ) );
+
+        images.put( "prozyme_proteinpulver_a", Integer.valueOf( R.drawable.prozyme_proteinpulver_a) );
+        images.put( "prozyme_proteinpulver_b", Integer.valueOf( R.drawable.prozyme_proteinpulver_b ) );
+        images.put( "sprek_proteinsmoothie_a", Integer.valueOf( R.drawable.sprek_proteinsmoothie_a) );
+        images.put( "sprek_proteinsmoothie_b", Integer.valueOf( R.drawable.sprek_proteinsmoothie_b ) );
+        images.put( "gilde_stjernebacon_a", Integer.valueOf( R.drawable.gilde_stjernebacon_a) );
+        images.put( "gilde_stjernebacon_b", Integer.valueOf( R.drawable.gilde_stjernebacon_b ) );
+        images.put( "nordfjord_kvernet_deig_av_storfe_a", Integer.valueOf( R.drawable.nordfjord_kvernet_deig_av_storfe_a) );
+        images.put( "nordfjord_kvernet_deig_av_storfe_b", Integer.valueOf( R.drawable.nordfjord_kvernet_deig_av_storfe_b ) );
+        images.put( "rema_1000_kvernet_deig_av_storfe_a", Integer.valueOf( R.drawable.rema_1000_kvernet_deig_av_storfe_a) );
+        images.put( "rema_1000_kvernet_deig_av_storfe_b", Integer.valueOf( R.drawable.rema_1000_kvernet_deig_av_storfe_b ) );
+        images.put( "rema_1000_strimlet_svinekjott_av_bog_a", Integer.valueOf( R.drawable.rema_1000_strimlet_svinekjott_av_bog_a) );
+        images.put( "rema_1000_strimlet_svinekjott_av_bog_b", Integer.valueOf( R.drawable.rema_1000_strimlet_svinekjott_av_bog_b ) );
+        images.put( "rema_1000_tynnskaaret_svinefilet_a", Integer.valueOf( R.drawable.rema_1000_tynnskaaret_svinefilet_a) );
+        images.put( "rema_1000_tynnskaaret_svinefilet_b", Integer.valueOf( R.drawable.rema_1000_tynnskaaret_svinefilet_b ) );
+        images.put( "den_stolte_hane_frossen_god_helg_kylling_bbq_a", Integer.valueOf( R.drawable.den_stolte_hane_frossen_god_helg_kylling_bbq_a) );
+        images.put( "den_stolte_hane_frossen_god_helg_kylling_bbq_b", Integer.valueOf( R.drawable.den_stolte_hane_frossen_god_helg_kylling_bbq_b ) );
+        images.put( "first_price_frossen_kyllingfilet_a", Integer.valueOf( R.drawable.first_price_frossen_kyllingfilet_a) );
+        images.put( "first_price_frossen_kyllingfilet_b", Integer.valueOf( R.drawable.first_price_frossen_kyllingfilet_b ) );
+        images.put( "prior_kalkunfilet_salt_og_pepper_a", Integer.valueOf( R.drawable.prior_kalkunfilet_salt_og_pepper_a) );
+        images.put( "prior_kalkunfilet_salt_og_pepper_b", Integer.valueOf( R.drawable.prior_kalkunfilet_salt_og_pepper_b ) );
+
+        images.put( "fiskemannen_reker_i_lake_a", Integer.valueOf( R.drawable.fiskemannen_reker_i_lake_a) );
+        images.put( "fiskemannen_reker_i_lake_b", Integer.valueOf( R.drawable.fiskemannen_reker_i_lake_b ) );
+        images.put( "first_price_egg_eggehvite_a", Integer.valueOf( R.drawable.first_price_egg_eggehvite_a) );
+        images.put( "first_price_egg_eggehvite_b", Integer.valueOf( R.drawable.first_price_egg_eggehvite_b ) );
+        images.put( "first_price_egg_eggeplomme_a", Integer.valueOf( R.drawable.first_price_egg_eggeplomme_a) );
+        images.put( "first_price_egg_eggeplomme_b", Integer.valueOf( R.drawable.first_price_egg_eggeplomme_b ) );
+        images.put( "first_price_egg_kokt_a", Integer.valueOf( R.drawable.first_price_egg_kokt_a) );
+        images.put( "first_price_egg_kokt_b", Integer.valueOf( R.drawable.first_price_egg_kokt_b ) );
+        images.put( "flemming_egg_a", Integer.valueOf( R.drawable.flemming_egg_a) );
+        images.put( "flemming_egg_b", Integer.valueOf( R.drawable.flemming_egg_b ) );
+        images.put( "tine_cottage_cheese_a", Integer.valueOf( R.drawable.tine_cottage_cheese_a) );
+        images.put( "tine_cottage_cheese_b", Integer.valueOf( R.drawable.tine_cottage_cheese_b ) );
+        images.put( "tine_mager_cottage_cheese_400g_a", Integer.valueOf( R.drawable.tine_mager_cottage_cheese_400g_a) );
+        images.put( "tine_mager_cottage_cheese_400g_b", Integer.valueOf( R.drawable.tine_mager_cottage_cheese_400g_b) );
+        images.put( "tine_mager_cottage_cheese_eple_paere_og_vanilje_a", Integer.valueOf( R.drawable.tine_mager_cottage_cheese_eple_paere_og_vanilje_a) );
+        images.put( "tine_mager_cottage_cheese_eple_paere_og_vanilje_b", Integer.valueOf( R.drawable.tine_mager_cottage_cheese_eple_paere_og_vanilje_b ) );
+        images.put( "q_meieriene_liten_skyr_blabaer_a", Integer.valueOf( R.drawable.q_meieriene_liten_skyr_blabaer_a) );
+        images.put( "q_meieriene_liten_skyr_blabaer_b", Integer.valueOf( R.drawable.q_meieriene_liten_skyr_blabaer_b ) );
+        images.put( "q_meieriene_liten_skyr_jordbaer_og_lime_a", Integer.valueOf( R.drawable.q_meieriene_liten_skyr_jordbaer_og_lime_a) );
+        images.put( "q_meieriene_liten_skyr_jordbaer_og_lime_b", Integer.valueOf( R.drawable.q_meieriene_liten_skyr_jordbaer_og_lime_b ) );
+
+        images.put( "q_meieriene_skyr_skogsbaerkick_a", Integer.valueOf( R.drawable.q_meieriene_skyr_skogsbaerkick_a) );
+        images.put( "q_meieriene_skyr_skogsbaerkick_b", Integer.valueOf( R.drawable.q_meieriene_skyr_skogsbaerkick_b ) );
+        images.put( "tine_go_morgen_melon_a", Integer.valueOf( R.drawable.tine_go_morgen_melon_a) );
+        images.put( "tine_go_morgen_melon_b", Integer.valueOf( R.drawable.tine_go_morgen_melon_b ) );
+        images.put( "tine_go_morgen_skogsbaeryoghurt_a", Integer.valueOf( R.drawable.tine_go_morgen_skogsbaeryoghurt_a) );
+        images.put( "tine_go_morgen_skogsbaeryoghurt_b", Integer.valueOf( R.drawable.tine_go_morgen_skogsbaeryoghurt_b ) );
+        images.put( "yoplait_double_protein_a", Integer.valueOf( R.drawable.yoplait_double_protein_a) );
+        images.put( "yoplait_double_protein_b", Integer.valueOf( R.drawable.yoplait_double_protein_b ) );
+        images.put( "fjordland_finnbiff_med_poteter_og_tyttebaersyltetooy_a", Integer.valueOf( R.drawable.fjordland_finnbiff_med_poteter_og_tyttebaersyltetooy_a) );
+        images.put( "fjordland_finnbiff_med_poteter_og_tyttebaersyltetooy_b", Integer.valueOf( R.drawable.fjordland_finnbiff_med_poteter_og_tyttebaersyltetooy_b ) );
+        images.put( "dr_oetker_ristorante_pizza_speciale_a", Integer.valueOf( R.drawable.dr_oetker_ristorante_pizza_speciale_a) );
+        images.put( "dr_oetker_ristorante_pizza_speciale_b", Integer.valueOf( R.drawable.dr_oetker_ristorante_pizza_speciale_b ) );
+        images.put( "first_price_nudler_med_kjootsmak_a", Integer.valueOf( R.drawable.first_price_nudler_med_kjootsmak_a) );
+        images.put( "first_price_nudler_med_kjootsmak_b", Integer.valueOf( R.drawable.first_price_nudler_med_kjootsmak_b ) );
+        images.put( "sopps_fullkornspasta_fusilli_a", Integer.valueOf( R.drawable.sopps_fullkornspasta_fusilli_a) );
+        images.put( "sopps_fullkornspasta_fusilli_b", Integer.valueOf( R.drawable.sopps_fullkornspasta_fusilli_b ) );
+        images.put( "sopps_fullkornspasta_penne_a", Integer.valueOf( R.drawable.sopps_fullkornspasta_penne_a) );
+        images.put( "sopps_fullkornspasta_penne_b", Integer.valueOf( R.drawable.sopps_fullkornspasta_penne_b ) );
+        images.put( "eldorado_jasminris_a", Integer.valueOf( R.drawable.eldorado_maiskorn_a) );
+        images.put( "eldorado_jasminris_b", Integer.valueOf( R.drawable.eldorado_maiskorn_b ) );
+
+        images.put( "gogreen_fullkorns_couscous_a", Integer.valueOf( R.drawable.gogreen_fullkorns_couscous_a) );
+        images.put( "gogreen_fullkorns_couscous_b", Integer.valueOf( R.drawable.gogreen_fullkorns_couscous_b ) );
+        images.put( "rema_1000_thai_hom_mali_rice_jasminris_a", Integer.valueOf( R.drawable.rema_1000_thai_hom_mali_rice_jasminris_a) );
+        images.put( "rema_1000_thai_hom_mali_rice_jasminris_b", Integer.valueOf( R.drawable.rema_1000_thai_hom_mali_rice_jasminris_b ) );
+        images.put( "uncle_bens_fullkornsris_a", Integer.valueOf( R.drawable.uncle_bens_fullkornsris_a) );
+        images.put( "uncle_bens_fullkornsris_b", Integer.valueOf( R.drawable.uncle_bens_fullkornsris_b ) );
+        images.put( "coop_tex_mex_taco_sauce_a", Integer.valueOf( R.drawable.coop_tex_mex_taco_sauce_a) );
+        images.put( "coop_tex_mex_taco_sauce_b", Integer.valueOf( R.drawable.coop_tex_mex_taco_sauce_b ) );
+        images.put( "first_prince_myke_tortilla_lefser_a", Integer.valueOf( R.drawable.first_prince_myke_tortilla_lefser_a) );
+        images.put( "first_prince_myke_tortilla_lefser_b", Integer.valueOf( R.drawable.first_prince_myke_tortilla_lefser_b ) );
+        images.put( "old_el_paso_whole_wheete_a", Integer.valueOf( R.drawable.old_el_paso_whole_wheete_a) );
+        images.put( "old_el_paso_whole_wheete_b", Integer.valueOf( R.drawable.old_el_paso_whole_wheete_b ) );
+        images.put( "rema_1000_fullkorn_tortillas_6_stk_a", Integer.valueOf( R.drawable.rema_1000_fullkorn_tortillas_6_stk_a) );
+        images.put( "rema_1000_fullkorn_tortillas_6_stk_b", Integer.valueOf( R.drawable.rema_1000_fullkorn_tortillas_6_stk_b ) );
+        images.put( "santa_maria_orginal_wrap_tortilla_big_size_a", Integer.valueOf( R.drawable.santa_maria_orginal_wrap_tortilla_big_size_a) );
+        images.put( "santa_maria_orginal_wrap_tortilla_big_size_b", Integer.valueOf( R.drawable.santa_maria_orginal_wrap_tortilla_big_size_b ) );
+        images.put( "kraft_philadelphia_naturell_light_a", Integer.valueOf( R.drawable.kraft_philadelphia_naturell_light_a) );
+        images.put( "kraft_philadelphia_naturell_light_b", Integer.valueOf( R.drawable.kraft_philadelphia_naturell_light_b ) );
+        images.put( "gilde_lammerull_palegg_a", Integer.valueOf( R.drawable.gilde_lammerull_palegg_a) );
+        images.put( "gilde_lammerull_palegg_b", Integer.valueOf( R.drawable.gilde_lammerull_palegg_b ) );
+
+        images.put( "gilde_roastbiff_palegg_a", Integer.valueOf( R.drawable.gilde_roastbiff_palegg_a) );
+        images.put( "gilde_roastbiff_palegg_b", Integer.valueOf( R.drawable.gilde_roastbiff_palegg_b ) );
+        images.put( "kylling_norge_kalkunfilet_med_peppermix_a", Integer.valueOf( R.drawable.kylling_norge_kalkunfilet_med_peppermix_a) );
+        images.put( "kylling_norge_kalkunfilet_med_peppermix_b", Integer.valueOf( R.drawable.kylling_norge_kalkunfilet_med_peppermix_b ) );
+        images.put( "nordfjord_jalapenoskinke_a", Integer.valueOf( R.drawable.nordfjord_jalapenoskinke_a) );
+        images.put( "nordfjord_jalapenoskinke_b", Integer.valueOf( R.drawable.nordfjord_jalapenoskinke_b ) );
+        images.put( "prior_kalkunfilet_palegg_a", Integer.valueOf( R.drawable.prior_kalkunfilet_palegg_a) );
+        images.put( "prior_kalkunfilet_palegg_b", Integer.valueOf( R.drawable.prior_kalkunfilet_palegg_b ) );
+        images.put( "solvinge_kyllingfilet_palegg_a", Integer.valueOf( R.drawable.solvinge_kyllingfilet_palegg_a) );
+        images.put( "solvinge_kyllingfilet_palegg_b", Integer.valueOf( R.drawable.solvinge_kyllingfilet_palegg_b ) );
+        images.put( "kavli_hapaa_a", Integer.valueOf( R.drawable.kavli_hapaa_a) );
+        images.put( "kavli_hapaa_b", Integer.valueOf( R.drawable.kavli_hapaa_b ) );
+        images.put( "first_price_bringaebaersyltetooy_a", Integer.valueOf( R.drawable.first_price_bringaebaersyltetooy_a) );
+        images.put( "first_price_bringaebaersyltetooy_b", Integer.valueOf( R.drawable.first_price_bringaebaersyltetooy_b ) );
+        images.put( "lerums_utvalde_kirsebear_a", Integer.valueOf( R.drawable.lerums_utvalde_kirsebear_a) );
+        images.put( "lerums_utvalde_kirsebear_b", Integer.valueOf( R.drawable.lerums_utvalde_kirsebear_b ) );
+        images.put( "first_price_noottemiks_a", Integer.valueOf( R.drawable.first_price_noottemiks_a) );
+        images.put( "first_price_noottemiks_b", Integer.valueOf( R.drawable.first_price_noottemiks_b ) );
+        images.put( "eldorado_micropop_a", Integer.valueOf( R.drawable.eldorado_micropop_a) );
+        images.put( "eldorado_micropop_b", Integer.valueOf( R.drawable.eldorado_micropop_b ) );
+
+
+        ImageView imageView1 = (ImageView) getView().findViewById(R.id.imageViewViewFoodImage1);
+        imageView1.setImageResource( images.get( stringImageA ).intValue() );
+
+        ImageView imageView2 = (ImageView) getView().findViewById(R.id.imageViewViewFoodImage2);
+        imageView2.setImageResource( images.get( stringImageB ).intValue() );
 
         // Image
 
