@@ -5,12 +5,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -220,6 +222,27 @@ public class RecipeFragment extends Fragment {
         TextView textViewStep21 = (TextView) getView().findViewById(R.id.id_body_TextViewStep2Content1);
         textViewStep21.setText("        "+stringStep13);
 
+        //Button view recipe
+        Button buttonShowRecipe = (Button)getActivity().findViewById(R.id.buttonBackToFood);
+        buttonShowRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change fragment to HomeFragment
+                Fragment fragment = null;
+                Class fragmentClass = null;
+                fragmentClass = FoodFragment.class;
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                // Need to pass meal number
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+            }
+        });
 
         db.close();
     }

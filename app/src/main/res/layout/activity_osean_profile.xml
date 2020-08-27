@@ -86,6 +86,7 @@
                 android:orientation="horizontal">
 
                 <fontsmaterialuiux.cairoButton
+                    android:id="@+id/buttonBackToFood"
                     android:layout_width="0dp"
                     android:layout_height="32dp"
                     android:layout_marginEnd="12dp"
