@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             DBSetupInsert setupInsert = new DBSetupInsert(this);
             setupInsert.insertAllCategories();
             setupInsert.insertAllFood();
+            setupInsert.insertAllRecipe();
             // Toast.makeText(this, "Setup completed!", Toast.LENGTH_LONG).show();
 
         }

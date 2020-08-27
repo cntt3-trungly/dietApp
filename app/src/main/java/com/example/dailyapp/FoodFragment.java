@@ -100,6 +100,7 @@ public class FoodFragment extends Fragment {
 
             // Need to run to get edit and delete buttons: onCreateOptionsMenu();
         }
+
         if(currentId.equals("")) {
             // Populate the list of categories
             populateListFood();
@@ -560,6 +561,33 @@ public class FoodFragment extends Fragment {
         imageView2.setImageResource( images.get( stringImageB ).intValue() );
 
         // Image
+
+        //Button view recipe
+        Button buttonShowRecipe = (Button)getActivity().findViewById(R.id.buttonShowRecipe);
+        buttonShowRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change fragment to HomeFragment
+                Fragment fragment = null;
+                Class fragmentClass = null;
+                fragmentClass = RecipeFragment.class;
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                // Send variable
+                Bundle bundle = new Bundle();
+                bundle.putString("mealNumber", ""+stringId); // Put anything what you want
+                bundle.putString("currentFoodId", ""+currentName); // Put anything what you want
+                fragment.setArguments(bundle);
+
+                // Need to pass meal number
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+            }
+        });
 
 
         // Calculation line

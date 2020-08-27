@@ -7,7 +7,7 @@
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="18dp"
@@ -119,17 +119,22 @@
                     android:id="@+id/textViewBlank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/blank" />
+                    android:text="                           " />
 
-                <Button
-                    android:id="@+id/buttonSubmit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/add_to_diary" />
+
 
             </TableRow>
         </TableLayout>
+        <Button
+            android:id="@+id/buttonSubmit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bf_button"
+            android:text="Add to Diary"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <!-- //Add serving -->
 

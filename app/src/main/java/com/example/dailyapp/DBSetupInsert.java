@@ -121,8 +121,8 @@ public class DBSetupInsert {
     // Insert all food into food database
     public void insertAllFood() {
 
-        setupInsertToFood("NULL, 'Speltlompe med havre', 'Aulie', '26', 'gram', '1', 'stk', '122', '3.5', '23.4', '1', '32', '1', '6', '0', NULL, NULL, '2', 'aulie_speltlomper_med_havre_thumb.jpg', 'aulie_speltlomper_med_havre_a', 'aulie_speltlomper_med_havre_b', 'aulie_speltlomper_med_havre_c.jpg', NULL");
-        setupInsertToFood("NULL, 'Havregryn lettkokt', 'Axa', '60', 'gram', '60', 'g', '389', '11.4', '63.1', '7.8', '233', '7', '38', '5', NULL, NULL, '3', 'axa_havregryn_lettkokt_thumb.jpg', 'axa_havregryn_lettkokt_a', 'axa_havregryn_lettkokt_b', 'axa_havregryn_lettkokt_c.jpg', NULL");
+        setupInsertToFood("NULL, '1 Speltlompe med havre', 'Aulie', '26', 'gram', '1', 'stk', '122', '3.5', '23.4', '1', '32', '1', '6', '0', NULL, NULL, '2', 'aulie_speltlomper_med_havre_thumb.jpg', 'aulie_speltlomper_med_havre_a', 'aulie_speltlomper_med_havre_b', 'aulie_speltlomper_med_havre_c.jpg', NULL");
+        setupInsertToFood("NULL, '2 Havregryn lettkokt', 'Axa', '60', 'gram', '60', 'g', '389', '11.4', '63.1', '7.8', '233', '7', '38', '5', NULL, NULL, '3', 'axa_havregryn_lettkokt_thumb.jpg', 'axa_havregryn_lettkokt_a', 'axa_havregryn_lettkokt_b', 'axa_havregryn_lettkokt_c.jpg', NULL");
         setupInsertToFood("NULL, 'Havregryn store', 'Axa', '80', 'gram', '80', 'g', '380', '13', '61', '7', '304', '10', '49', '6', NULL, NULL, '3', 'axa_havregryn_store_thumb.jpg', 'axa_havregryn_store_a', 'axa_havregryn_store_b', 'axa_havregryn_store_c.jpg', NULL");
         setupInsertToFood("NULL, 'Frosne pitaprød', 'Hatting', '80', 'gram', '1', 'stk', '251', '8.1', '50', '1.5', '201', '6', '40', '1', NULL, NULL, '4', 'hatting_frosne_pitabrod_thumb.jpg', 'hatting_frosne_pitabrod_a', 'hatting_frosne_pitabrod_b', 'hatting_frosne_pitabrod_c.jpg', NULL");
         setupInsertToFood("NULL, 'Frosne ekstra grove rundstykker', 'Hvita hjertegod', '70', 'gram', '1', 'stk', '250', '18', '25', '6', '175', '13', '18', '4', NULL, NULL, '4', 'hvita_hjertegod_frosne_ekstra_grove_rundstykker_thumb.jpg', 'hvita_hjertegod_frosne_ekstra_grove_rundstykker_a', 'hvita_hjertegod_frosne_ekstra_grove_rundstykker_b', 'hvita_hjertegod_frosne_ekstra_grove_rundstykker_c.jpg', NULL");
@@ -157,8 +157,8 @@ public class DBSetupInsert {
         setupInsertToFood("NULL, 'YT 1 Oppladning før trening - Søt og salt med sjokolade', 'Tine', '50', 'gram', '1', 'stk', '427', '21', '45', '17', '214', '11', '23', '9', NULL, NULL, '18', 'tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_thumb.jpg', 'tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_a', 'tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_b', 'tine_yt_1_oppladning_for_trening_sot_og_salt_med_sjokolade_c.jpg', NULL");
         setupInsertToFood("NULL, 'YT Restitusjonsbar', 'Tine', '65', 'gram', '1', 'stk', '377', '29', '48', '8.3', '245', '19', '31', '5', NULL, NULL, '18', 'tine_yt_restitusjonsbar_thumb.jpg', 'tine_yt_restitusjonsbar_a', 'tine_yt_restitusjonsbar_b', 'tine_yt_restitusjonsbar_c.jpg', NULL");
         setupInsertToFood("NULL, 'Lean Whey Chocolate Milkshake', 'Gymgrossisten Optimum Nutrition', '30', 'gram', '1', 'skje', '410', '20', '1.4', '1.4', '123', '6', '0', '0', NULL, NULL, '19', 'gymgrossisten_100_lean_whey_chocolate_milkshake_thumb.jpg', 'gymgrossisten_100_lean_whey_chocolate_milkshake_a', 'gymgrossisten_100_lean_whey_chocolate_milkshake_b.', 'gymgrossisten_100_lean_whey_chocolate_milkshake_c.jpg', NULL");
-        setupInsertToFood("NULL, '100% Whey Gold Standard Cookies and Cream', 'Gymgrossisten', '30', 'gram', '1', 'skje', '363', '78.9', '7.8', '2.5', '109', '24', '2', '1', NULL, NULL, '19', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_thumb.jpg', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_a', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_b', 'gymgrossisten_100_whey_gold_standard_cookies_cnd_cream_c.jpg', NULL");
-        setupInsertToFood("NULL, '100% Whey Gold Standard Delicious Strawberry', 'Gymgrossisten', '30', 'gram', '1', 'skje', '375', '82.5', '4.5', '2.9', '113', '25', '1', '1', NULL, NULL, '19', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_thumb.jpg', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_a', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_b', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_c.jpg', NULL");
+        setupInsertToFood("NULL, 'Whey Gold Standard Cookies and Cream', 'Gymgrossisten', '30', 'gram', '1', 'skje', '363', '78.9', '7.8', '2.5', '109', '24', '2', '1', NULL, NULL, '19', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_thumb.jpg', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_a', 'gymgrossisten_100_whey_gold_standard_cookies_and_cream_b', 'gymgrossisten_100_whey_gold_standard_cookies_cnd_cream_c.jpg', NULL");
+        setupInsertToFood("NULL, 'Whey Gold Standard Delicious Strawberry', 'Gymgrossisten', '30', 'gram', '1', 'skje', '375', '82.5', '4.5', '2.9', '113', '25', '1', '1', NULL, NULL, '19', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_thumb.jpg', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_a', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_b', 'gymgrossisten_100_whey_gold_standard_delicious_strawberry_c.jpg', NULL");
         setupInsertToFood("NULL, 'Lean Protein Blueberry Raspberry Ice Cream', 'Gymgrossisten', '30', 'gram', '1', 'skje', '378', '80', '4', '5', '113', '24', '1', '2', NULL, NULL, '19', 'gymgrossisten_lean_protein_thumb.jpg', 'gymgrossisten_lean_protein_a', 'gymgrossisten_lean_protein_b', 'gymgrossisten_lean_protein_c.jpg', NULL");
         setupInsertToFood("NULL, 'Whey 80 Ice Coffee', 'Gymgrossisten', '30', 'gram', '1', 'skje', '396', '76', '4', '8', '119', '23', '1', '2', NULL, NULL, '19', 'gymgrossisten_whey_80_ice_coffee_thumb.jpg', 'gymgrossisten_whey_80_ice_coffee_a', 'gymgrossisten_whey_80_ice_coffee_b', 'gymgrossisten_whey_80_ice_coffee_c.jpg', NULL");
         setupInsertToFood("NULL, 'Prozyme proteinpulver bringebær', 'Tech Nutrition', '40', 'gram', '1', 'skje', '368', '82.5', '5', '1.3', '147', '33', '2', '1', NULL, NULL, '19', 'prozyme_proteinpulver_thumb.jpg', 'prozyme_proteinpulver_a', 'prozyme_proteinpulver_b', 'prozyme_proteinpulver_c.jpg', NULL");
@@ -214,6 +214,23 @@ public class DBSetupInsert {
         setupInsertToFood("NULL, 'Micropop', 'Eldorado', '100', 'gram', '1', 'stk', '389', '7', '35', '19.1', '389', '7', '35', '19', NULL, NULL, '43', 'eldorado_micropop_thumb.jpg', 'eldorado_micropop_a', 'eldorado_micropop_b', 'eldorado_micropop_c.jpg', NULL");
         setupInsertToFood("NULL, 'Sørlandschips Spansk paprika med persille', 'Snacks', '200', 'gram', '1', 'pakke', '504', '7', '58', '26', '1 008', '14', '116', '52', NULL, NULL, '43', 'soorlandschips_spansk_paprika_med_persille_thumb.jpg', 'soorlandschips_spansk_paprika_med_persille_a', 'soorlandschips_spansk_paprika_med_persille_b', 'soorlandschips_spansk_paprika_med_persille_c.jpg', NULL");
 
+    }
+    public void setupInsertToRecipe(String values) {
+        try {
+            DBAdapter db = new DBAdapter(context);
+            db.open();
+            db.insert("recipe",
+                    "_id, food_id, mesurement, ingredient1, ingredient2,ingredient3,ingredient4,step11,step12,step21",
+                    values);
+            db.close();
+        } catch (SQLiteException e) {
+            // Toast.makeText(context, "Error; Could not insert categories.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void insertAllRecipe() {
+       setupInsertToRecipe("NULL,'1','Serving size per 100g','- Fish ( 300g )','- Tomato (2 fruits)','- Bacon (2 slices)','- Fennel, scallions (10g)','Fish you beat the scales, gut (avoid breaking the\n" +
+               "bile to prevent fish from being bitter). Then rinse and drain. Depending on the size of the fish and your preference, you can leave them whole or cut in pieces','Tomato stalks, washed and diced is best. Because tomatoes outside the flavor, diced the sauce will give a much better sauce.\n" +
+               "After buying the bacon, you wash it and cut it into bite-sized pieces. Cut the stretcher as thin as possible to soak the spices.','Heat oil on the stove. When the oil is sparkling, add the fish to be sautéed on both sides. Then you put the bacon in the pan until it is slightly yellow.'");
     }
 
 

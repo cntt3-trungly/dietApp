@@ -13,8 +13,8 @@ import android.widget.Toast;
 public class DBAdapter {
 
     /* 01 Variables ---------------------------------------- */
-    private static final String databaseName = "dietbystram";
-    private static final int databaseVersion = 71;
+    private static final String databaseName = "eatdy";
+    private static final int databaseVersion = 3;
 
     /* 02 Database variables ------------------------------- */
     private final Context context;
@@ -183,6 +183,24 @@ public class DBAdapter {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+            try {
+                db.execSQL("CREATE TABLE IF NOT EXISTS recipe (" +
+                        " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        " food_id INTEGER, " +
+                        " mesurement VARCHAR," +
+                        " ingredient1 VARCHAR," +
+                        " ingredient2 VARCHAR," +
+                        " ingredient3 VARCHAR," +
+                        " ingredient4 VARCHAR," +
+                        " step11 VARCHAR," +
+                        " step12 VARCHAR," +
+                        " step21 VARCHAR);");
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
@@ -190,7 +208,7 @@ public class DBAdapter {
 
 
             // ! All tables that are going to be dropped need to be listed here
-
+            db.execSQL("DROP TABLE IF EXISTS recipe");
             db.execSQL("DROP TABLE IF EXISTS goal");
             db.execSQL("DROP TABLE IF EXISTS users");
             db.execSQL("DROP TABLE IF EXISTS food_diary_cal_eaten");

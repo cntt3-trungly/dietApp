@@ -101,9 +101,14 @@
             android:text="@string/description" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="show recipe"/>
+            android:id="@+id/buttonShowRecipe"
+            android:layout_width="150dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="show recipe"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:background="@drawable/bf_button"/>
         <!-- //Description -->
 
 

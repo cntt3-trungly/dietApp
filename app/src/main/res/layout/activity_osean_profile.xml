@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_mainScroll_ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#edf2fa">
+
+    <!-- main layout -->
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ScrollViewSize">
+
+        <!-- cover image -->
+
+        <ImageView
+            android:id="@+id/id_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="263dp"
+            android:background="@drawable/green1"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription" />
+
+        <!-- Profile image -->
+        <ImageView
+            android:id="@+id/id_profile_image"
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/casotca"
+            tools:ignore="UnusedAttribute" />
+
+        <!-- Name And Description  -->
+
+        <RelativeLayout
+            android:id="@+id/id_profile_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="217dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/bg_recat">
+
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_fullName_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="65dp"
+                android:gravity="center"
+                android:text="Tortilla Whole Weat"
+                android:textColor="#5f5f5f"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_description_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_fullName_TextView"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:text="Serving size per 100g"
+                android:textColor="#5f5f5f"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_description_TextView"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="23dp"
+                android:orientation="horizontal">
+
+                <fontsmaterialuiux.cairoButton
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bf_button"
+                    android:gravity="center"
+                    android:text="Back to food menu"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <fontsmaterialuiux.cairoButton
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bf_button"
+                    android:gravity="center"
+                    android:text="Follow"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_profile_RelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_profile_RelativeLayout"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_recat">
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_Title_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:maxLines="1"
+                android:text="* Ingredient :"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                tools:ignore="SpUsage" />
+
+            <!-- body Text -->
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_Title_TextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Fish ( 300g )"
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Tomato (2 fruits)"
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextView2"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Bacon (2 slices)"
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextView3"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Fennel, scallions (10g)"
+                android:textSize="16sp" />
+
+            <!-- Date Text -->
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_below="@+id/id_body_TextView4"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+
+                tools:ignore="RelativeOverlap">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:orientation="horizontal">
+
+                    <!-- comment icon -->
+                    <ImageButton
+                        android:id="@+id/id_comment_ImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_chat"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- comment count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_commentCount_TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@+id/id_comment_ImageButton"
+                        android:layout_toRightOf="@+id/id_comment_ImageButton"
+                        android:text="40"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginLeft="6dp">
+
+                    <!-- Like Icon -->
+                    <ImageButton
+                        android:id="@+id/id_like_ImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_unlike"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- Like Count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_likeCount_TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@id/id_like_ImageButton"
+                        android:layout_toRightOf="@+id/id_like_ImageButton"
+                        android:text="50"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_profile_RelativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_profile_RelativeLayout1"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_recat">
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_Title_TextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:maxLines="1"
+                android:text="* Steps :"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                tools:ignore="SpUsage" />
+
+            <!-- body Text -->
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_body_TextViewStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_Title_TextView1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Step 1: Process materials"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep1Content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     Fish you beat the scales, gut (avoid breaking the
+             bile to prevent fish from being bitter). Then rinse and drain. Depending on the size of the fish and your preference, you can leave them whole or cut in pieces"
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep1Content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep1Content1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     Tomato stalks, washed and diced is best. Because tomatoes outside the flavor, diced the sauce will give a much better sauce.
+After buying the bacon, you wash it and cut it into bite-sized pieces. Cut the stretcher as thin as possible to soak the spices."
+                android:textSize="16sp" />
+
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_body_TextViewStep2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep1Content2"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="- Step 2: Fry the fish and make the meat"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep2Content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep2"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     Heat oil on the stove. When the oil is sparkling, add the fish to be sautéed on both sides. Then you put the bacon in the pan until it is slightly yellow."
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_body_TextViewStep3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep2Content1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="- Step 3: Prepare fish sauce"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep3Content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep3"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     The fish sauce is very simple. All you need to do is heat the oil and add the minced onion to the scent. When the onion is yellow, add the tomatoes to a fine beam."
+                android:textSize="16sp" />
+
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_body_TextViewStep4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep3Content1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="- Step 4: Finished fish dish tomato sauce"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep4Content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep4"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     When the sauce is boiling again, put the golden fried fish into the pan, you can use a ladle to pour the sauce over the fish. Cover the pot and cook for about 5 minutes to allow the fish to soak up the spices. Use the chopsticks to gently turn the fish over and cook until the sauce is comparable"
+                android:textSize="16sp" />
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewStep4Content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewStep4Content1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="8"
+                android:text="     Gently pick up the plates with scallions and around them. Use the ladle to scoop the sauce over the fish. You can sprinkle the cumin and finely on the sauce as well."
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_below="@+id/id_body_TextViewStep4Content2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+                tools:ignore="RelativeOverlap">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:orientation="horizontal">
+
+                    <!-- comment icon -->
+                    <ImageButton
+                        android:id="@+id/id_comment_ImageButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_chat"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- comment count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_commentCount_TextView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@+id/id_comment_ImageButton1"
+                        android:layout_toRightOf="@+id/id_comment_ImageButton1"
+                        android:text="29"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginLeft="6dp">
+
+                    <!-- Like Icon -->
+                    <ImageButton
+                        android:id="@+id/id_like_ImageButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_unlike"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- Like Count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_likeCount_TextView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@id/id_like_ImageButton1"
+                        android:layout_toRightOf="@+id/id_like_ImageButton1"
+                        android:text="120"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/id_profile_RelativeLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_profile_RelativeLayout2"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_recat">
+
+            <fontsmaterialuiux.cairoBoldTextView
+                android:id="@+id/id_Title_TextViewCalo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:maxLines="1"
+                android:text="* Nutritional information :"
+                android:textSize="20dp"
+                android:textStyle="bold|italic"
+                tools:ignore="SpUsage" />
+
+            <!-- body Text -->
+
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewCalo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_Title_TextViewCalo"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Protein (per 100g) : 14g"
+                android:textSize="16sp" />
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewCalo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewCalo1"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Carb (per 100g) : 24g"
+                android:textSize="16sp" />
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewCalo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewCalo2"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Fat (per 100g) : 14g"
+                android:textSize="16sp" />
+            <fontsmaterialuiux.cairoTextView
+                android:id="@+id/id_body_TextViewCalo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_body_TextViewCalo3"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginRight="21dp"
+                android:maxLines="2"
+                android:text="- Total Energy (per 100g) : 180 Kcal"
+                android:textSize="16sp" />
+
+
+            <!-- Date Text -->
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_below="@+id/id_body_TextViewCalo4"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="2dp"
+
+                tools:ignore="RelativeOverlap">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:orientation="horizontal">
+
+                    <!-- comment icon -->
+                    <ImageButton
+                        android:id="@+id/id_comment_ImageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_chat"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- comment count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_commentCount_TextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@+id/id_comment_ImageButton3"
+                        android:layout_toRightOf="@+id/id_comment_ImageButton3"
+                        android:text="122"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginLeft="6dp">
+
+                    <!-- Like Icon -->
+                    <ImageButton
+                        android:id="@+id/id_like_ImageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_unlike"
+                        tools:ignore="ContentDescription" />
+
+                    <!-- Like Count Text -->
+                    <fontsmaterialuiux.cairoTextView
+                        android:id="@+id/id_likeCount_TextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@id/id_like_ImageButton3"
+                        android:layout_toRightOf="@+id/id_like_ImageButton3"
+                        android:text="170"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
