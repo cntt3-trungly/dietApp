@@ -231,6 +231,9 @@ public class DBSetupInsert {
        setupInsertToRecipe("NULL,'1','Serving size per 100g','- Fish ( 300g )','- Tomato (2 fruits)','- Bacon (2 slices)','- Fennel, scallions (10g)','Fish you beat the scales, gut (avoid breaking the\n" +
                "bile to prevent fish from being bitter). Then rinse and drain. Depending on the size of the fish and your preference, you can leave them whole or cut in pieces','Tomato stalks, washed and diced is best. Because tomatoes outside the flavor, diced the sauce will give a much better sauce.\n" +
                "After buying the bacon, you wash it and cut it into bite-sized pieces. Cut the stretcher as thin as possible to soak the spices.','Heat oil on the stove. When the oil is sparkling, add the fish to be sautéed on both sides. Then you put the bacon in the pan until it is slightly yellow.'");
+       setupInsertToRecipe("NULL,'2','Serving size per 150g','- Red beans ( 150g )','- Rice Porridge (1/2 kg)','- Orange peel (2 slices)','- Scallions (5g)','Fish you beat the scales, gut (avoid breaking the\n" +
+               "bile to prevent fish from being bitter). Then rinse and drain. Depending on the size of the fish and your preference, you can leave them whole or cut in pieces','Tomato stalks, washed and diced is best. Because tomatoes outside the flavor, diced the sauce will give a much better sauce.\n" +
+               "After buying the bacon, you wash it and cut it into bite-sized pieces. Cut the stretcher as thin as possible to soak the spices.','Heat oil on the stove. When the oil is sparkling, add the fish to be sautéed on both sides. Then you put the bacon in the pan until it is slightly yellow.'");
     }
 
 

@@ -186,6 +186,8 @@ public class RecipeFragment extends Fragment {
         HashMap<String, Integer> images = new HashMap<String, Integer>();
         images.put("aulie_speltlomper_med_havre_a", Integer.valueOf(R.drawable.aulie_speltlomper_med_havre_a));
         images.put("aulie_speltlomper_med_havre_b", Integer.valueOf(R.drawable.aulie_speltlomper_med_havre_b));
+        images.put("axa_havregryn_lettkokt_a", Integer.valueOf(R.drawable.axa_havregryn_lettkokt_a));
+        images.put("axa_havregryn_lettkokt_b", Integer.valueOf(R.drawable.axa_havregryn_lettkokt_b));
 
 
         ImageView imageView1 = (ImageView) getView().findViewById(R.id.id_profile_image);
